@@ -8,7 +8,12 @@ export const registerUser = catchAsyncError(async (req, res, next) => {
     const { username, email, password } = req.body;
     const hashedPassword = await bcrypt.hash(password, parseInt(process.env.BCRYPT_ROUNDS) | 10);
 
-    const user = new User({
+    let user = await User.findOne({ $or: [{ username }, { email }] }).select("+password");
+    if (user) {
+
+        return next(new ErrorHandler("User already exists", 400, "DUPLICATE_REQUEST"));
+    }
+    user = new User({
         username,
         email,
         password: hashedPassword
