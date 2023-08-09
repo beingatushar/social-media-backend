@@ -42,7 +42,7 @@ The project is organized with the following structure:
 
 Follow these steps to set up and run the application:
 
-1. Clone the repository: `git clone <repository-url>`
+1. Clone the repository: `git clone https://github.com/beingatushar/social-media-backend.git`
 2. Install dependencies: `npm install`
 3. Set up environment variables (see [Environment Variables](#environment-variables))
 4. Run the application: `npm start`
