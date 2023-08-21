@@ -11,6 +11,7 @@ app.use(cors({
     methods: ["GET", "POST", "DELETE", "PUT"],
     origin: 'http://localhost:5173', // Update with your frontend's origin
     credentials: true,
+    sameSite: none
 }));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
