@@ -6,11 +6,11 @@ import userRouter from "./routers/user.js";
 import postRouter from "./routers/post.js";
 import cors from "cors";
 config();
-
 export const app = express();
 app.use(cors({
     methods: ["GET", "POST", "DELETE", "PUT"],
-    credentials: true
+    origin: 'http://localhost:5173', // Update with your frontend's origin
+    credentials: true,
 }));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
