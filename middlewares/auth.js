@@ -5,6 +5,8 @@ export const sendCookie = (res, user) => {
     res.cookie("token", token, {
         httpOnly: true,
         maxAge: 15 * 60 * 1000,
+        sameSite: "none",
+        secure: true
     })
 
 };
